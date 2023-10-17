@@ -1,31 +1,46 @@
-var list = ["tiger", "cat", "bear", "bird"];
-console.log(list[1]);
+var user = {
+    name: "John", 
+    age: 34,
+    hobby: "Soccer", 
+    isMarried: false,
+    spells: ["abarakadabara", "shazam", "boo"],
+    shout: function() {
+        console.log("AHHHHHH!");
+    }
+};
 
-var numbers = [1, 2, 3, 4];
-var booleans = [true, false, true];
-var functions = [function apple(){console.log("apple");}];
+//Adding a property to an object
 
-console.log(functions);
+user.favoriteFood = "pizza";
 
-//not to be used
-var mixedList = ["apples", 3, undefined, true, function apple(){console.log("apples");}];
+console.log(user);
 
+//changing values
+
+user.isMarried = true;
+
+console.log(user);
+
+//Objects in an array
 var list = [
-    ["tiger", "cat", "bear", "bird"]
+    {
+        username: "andy", 
+        password: "secret"
+    },
+    {
+        username: "jess", 
+        password: "123"
+    }
 ];
 
-console.log(list[0][2]);
+console.log(user.spells[1]);
+console.log(list[0].password);
+console.log(user.shout());
 
-var list = ["tiger", "cat", "bear", "bird"];
+user2 = {};
 
+console.log(user2);
 
-list.shift();
-console.log(list);
-list.pop();
-console.log(list);
-list.push("elephant");
-console.log(list);
-var newList = list.concat(["bee", "deer"]);
-console.log(newList);
-newList.sort();
-console.log(newList);
+list2 = [];
+
+console.log(list2);
