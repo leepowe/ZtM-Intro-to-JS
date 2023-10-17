@@ -1,36 +1,31 @@
-function sayHello(){
-    console.log("Hello");
-}
+var list = ["tiger", "cat", "bear", "bird"];
+console.log(list[1]);
 
-sayHello();
+var numbers = [1, 2, 3, 4];
+var booleans = [true, false, true];
+var functions = [function apple(){console.log("apple");}];
 
-var sayBye = function(){
-    console.log("Bye");
-}
+console.log(functions);
 
-sayBye();
+//not to be used
+var mixedList = ["apples", 3, undefined, true, function apple(){console.log("apples");}];
 
+var list = [
+    ["tiger", "cat", "bear", "bird"]
+];
 
-function sing(){
-    console.log("AHHHHHH");
-    console.log("TEEEEEEE");
-}
+console.log(list[0][2]);
 
-sing();
-
-
-
-function sing2(song){
-    console.log(song);
-}
-
-sing2("la de dah");
+var list = ["tiger", "cat", "bear", "bird"];
 
 
-function multiply(a, b) {
-    if(a > 10 || b > 10) {
-        return "That's too hard";
-    }else{
-        return a*b;
-    }
-}
+list.shift();
+console.log(list);
+list.pop();
+console.log(list);
+list.push("elephant");
+console.log(list);
+var newList = list.concat(["bee", "deer"]);
+console.log(newList);
+newList.sort();
+console.log(newList);
