@@ -1,46 +1,30 @@
-var user = {
-    name: "John", 
-    age: 34,
-    hobby: "Soccer", 
-    isMarried: false,
-    spells: ["abarakadabara", "shazam", "boo"],
-    shout: function() {
-        console.log("AHHHHHH!");
-    }
-};
-
-//Adding a property to an object
-
-user.favoriteFood = "pizza";
-
-console.log(user);
-
-//changing values
-
-user.isMarried = true;
-
-console.log(user);
-
-//Objects in an array
-var list = [
+var database = [
     {
-        username: "andy", 
-        password: "secret"
-    },
-    {
-        username: "jess", 
-        password: "123"
+        username: "lee", 
+        password: "supersecret"
     }
 ];
 
-console.log(user.spells[1]);
-console.log(list[0].password);
-console.log(user.shout());
+var newsfeed = [
+    {
+        username: "bobby",
+        timeline: "s"
+    }, 
+    {
+        username: "sally", 
+        timeline: "2"
+    }
+];
 
-user2 = {};
+var userNamePrompt = prompt("What's your username: ");
+var passwordPrompt = prompt("What's your password: ");
 
-console.log(user2);
+function signIn(user, pass) {
+    if (user === database[0].username && pass === database[0].password) {
+        console.log(newsfeed);
+    } else {
+        alert("Sorry, wrong username and password!")
+    }
+}
 
-list2 = [];
-
-console.log(list2);
+signIn(userNamePrompt, passwordPrompt);
