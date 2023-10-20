@@ -1,47 +1,51 @@
-var todos = [
-    "clean room", 
-    "brush teeth",
-    "excercise", 
-    "study javascript", 
-    "eat healthy"
+var database = [
+    {
+        username: "Lee", 
+        password: "supersecret"
+    },
+    {
+        username: "Sally", 
+        password: "123"
+    },
+    {
+        username: "ingrid", 
+        password: "777"
+    }
 ];
 
-// for (var i = 0; i < todos.length; i++){
-//     todos[i] = todos[i] + "!";
-// }
-
-// var counterOne = 10;
-// while (counterOne > 0) {
-//     console.log(counterOne);
-//     counterOne--;
-// }
-
-// var counterTwo = 10
-// do {
-//     console.log(counterTwo);
-//     counterTwo--;
-// } while (counterTwo > 0);
-
-var todosLength = todos.length;
-for (var i = 0; i < todosLength; i++) {
-    console.log(i);
-}
-
-// todos.forEach(function(todo, i) {
-//     console.log(todo, i);
-// })
-
-var importantTodos = [
-    "clean room!", 
-    "brush teeth!",
-    "excercise!", 
-    "study javascript!", 
-    "eat healthy!"
+var newsfeed = [
+    {
+        username: "Bobby",
+        timeline: "bobby timeline"
+    },
+    {
+        username: "Sally",
+        timeline: "sally timeline"
+    },
+    {
+        username: "ingrid",
+        timeline: "ingrid timeline"
+    }
 ];
 
-function logTodos(todo, i) {
-    console.log(todo, i);
+function isUserValid(username, password){
+    for ( var i = 0; i < database.length; i++) {
+        if (database[i].username === username && database[i].password === password) {
+            return true;
+        }
+    }
+    return false;
 }
 
-todos.forEach(logTodos);
-importantTodos.forEach(logTodos);
+function signIn(username, password) {
+    if (isUserValid(username, password)){
+        console.log(newsfeed);
+    } else {
+        alert("Sorry, wrong username and password combination");
+    }
+}
+
+var userNamePrompt = prompt("What's your username: ");
+var passwordPrompt = prompt("What's your password: ");
+
+signIn(userNamePrompt, passwordPrompt);
