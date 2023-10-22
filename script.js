@@ -1,51 +1,45 @@
-var database = [
-    {
-        username: "Lee", 
-        password: "supersecret"
-    },
-    {
-        username: "Sally", 
-        password: "123"
-    },
-    {
-        username: "ingrid", 
-        password: "777"
-    }
-];
+// Dom Selectors  these commands are being used in the console
+document.getElementsByTagName("h1");
 
-var newsfeed = [
-    {
-        username: "Bobby",
-        timeline: "bobby timeline"
-    },
-    {
-        username: "Sally",
-        timeline: "sally timeline"
-    },
-    {
-        username: "ingrid",
-        timeline: "ingrid timeline"
-    }
-];
+document.getElementsByClassName("second")[0];
 
-function isUserValid(username, password){
-    for ( var i = 0; i < database.length; i++) {
-        if (database[i].username === username && database[i].password === password) {
-            return true;
-        }
-    }
-    return false;
-}
+document.getElementById("first");
 
-function signIn(username, password) {
-    if (isUserValid(username, password)){
-        console.log(newsfeed);
-    } else {
-        alert("Sorry, wrong username and password combination");
-    }
-}
+//Newer: use querySelector and querySelectorAll
 
-var userNamePrompt = prompt("What's your username: ");
-var passwordPrompt = prompt("What's your password: ");
+document.querySelector("h1");
 
-signIn(userNamePrompt, passwordPrompt);
+document.querySelector("li");
+
+document.querySelectorAll("li");
+
+document.querySelectorAll("h1, li");
+
+document.querySelector("li").getAttribute("random");
+
+document.querySelector("li").setAttribute("random", "1000");
+
+// document.querySelector("h1").style.background = "yellow";
+
+var h1 = document.querySelector("h1");
+h1.className = "coolTitle";  //css by raphel castro via codepen
+
+document.querySelector("li").classList;
+
+document.querySelector("li").classList.add("coolTitle");
+
+document.querySelector("li").classList.remove("coolTitle");
+
+document.querySelector("li").classList.add("done");
+
+document.querySelector("li").classList.toggle("done");
+
+h1.innerHTML = "<strong>!!!!!</strong>";
+
+document.querySelectorAll("li")[1];
+
+document.querySelectorAll("li")[1].parentElement; //ul
+
+document.querySelectorAll("li")[1].parentElement.parentElement; //body
+
+document.querySelectorAll("li")[1].parentElement.parentElement.children; //body's children
