@@ -1,45 +1,45 @@
-// Dom Selectors  these commands are being used in the console
-document.getElementsByTagName("h1");
+// var button = document.getElementsByTagName('button')[0];
 
-document.getElementsByClassName("second")[0];
+// button.addEventListener("click", function() {
+//     console.log("splat!");
+// })
 
-document.getElementById("first");
+// button.addEventListener("mouseenter", function() {
+//     console.log("squeek");
+// })
 
-//Newer: use querySelector and querySelectorAll
+// button.addEventListener("mouseleave", function() {
+//     console.log("*silence*");
+// })
 
-document.querySelector("h1");
+var enterBtn = document.getElementById('enter');
+var input = document.getElementById('userinput');
+var ul = document.querySelector('ul');
 
-document.querySelector("li");
+//refactoring
+function inputLength() {
+    return input.value.length;
+}
 
-document.querySelectorAll("li");
+function createListElement() {
+    var li = document.createElement('li');
+    li.appendChild(document.createTextNode(input.value));
+    ul.appendChild(li);
+    input.value = '';
+}
 
-document.querySelectorAll("h1, li");
+function addListAfterClick() {
+    if (inputLength() > 0) {
+        createListElement();
+    }
+}
 
-document.querySelector("li").getAttribute("random");
+function addListAfterKeydown(event) {
+    if (inputLength() > 0 && event.key === 'Enter') {
+        createListElement();
+    }
+}
 
-document.querySelector("li").setAttribute("random", "1000");
+enterBtn.addEventListener('click', addListAfterClick);
 
-// document.querySelector("h1").style.background = "yellow";
-
-var h1 = document.querySelector("h1");
-h1.className = "coolTitle";  //css by raphel castro via codepen
-
-document.querySelector("li").classList;
-
-document.querySelector("li").classList.add("coolTitle");
-
-document.querySelector("li").classList.remove("coolTitle");
-
-document.querySelector("li").classList.add("done");
-
-document.querySelector("li").classList.toggle("done");
-
-h1.innerHTML = "<strong>!!!!!</strong>";
-
-document.querySelectorAll("li")[1];
-
-document.querySelectorAll("li")[1].parentElement; //ul
-
-document.querySelectorAll("li")[1].parentElement.parentElement; //body
-
-document.querySelectorAll("li")[1].parentElement.parentElement.children; //body's children
+input.addEventListener('keydown',  addListAfterKeydown);
