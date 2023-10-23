@@ -1,45 +1,34 @@
-// var button = document.getElementsByTagName('button')[0];
+var css = document.querySelector("h3");
+var color1 = document.querySelector(".color1");
+var color2 = document.querySelector(".color2");
+var body = document.getElementById("gradient");
+var randBtn = document.createElement("button");
 
-// button.addEventListener("click", function() {
-//     console.log("splat!");
-// })
+randBtn.textContent = 'Random Colors';
+document.body.appendChild(randBtn);
 
-// button.addEventListener("mouseenter", function() {
-//     console.log("squeek");
-// })
+setGradient();
 
-// button.addEventListener("mouseleave", function() {
-//     console.log("*silence*");
-// })
-
-var enterBtn = document.getElementById('enter');
-var input = document.getElementById('userinput');
-var ul = document.querySelector('ul');
-
-//refactoring
-function inputLength() {
-    return input.value.length;
+function setGradient(){
+    body.style.background = "linear-gradient( to right, " + color1.value + ", " + color2.value + ")";
+    
+    css.textContent = body.style.background + ";";
 }
 
-function createListElement() {
-    var li = document.createElement('li');
-    li.appendChild(document.createTextNode(input.value));
-    ul.appendChild(li);
-    input.value = '';
-}
+color1.addEventListener("input", setGradient)
 
-function addListAfterClick() {
-    if (inputLength() > 0) {
-        createListElement();
+color2.addEventListener("input", setGradient)
+
+function getRandomColor(){
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for ( var i = 0; i < 6; i++){
+        color += letters[Math.floor(Math.random()*16)];
     }
+    return color;
 }
 
-function addListAfterKeydown(event) {
-    if (inputLength() > 0 && event.key === 'Enter') {
-        createListElement();
-    }
-}
-
-enterBtn.addEventListener('click', addListAfterClick);
-
-input.addEventListener('keydown',  addListAfterKeydown);
+randBtn.addEventListener('click', function() {
+    color1.value = getRandomColor();
+    color2.value = getRandomColor();
+})
