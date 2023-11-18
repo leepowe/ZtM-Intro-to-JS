@@ -32,3 +32,21 @@ function foo() {
     foo();
 }
 // foo();
+
+//ASYNC
+console.log('1');
+setTimeout(() => {
+    console.log('2');
+}, 2000) //skipped this call for 2 seconds and went on to process all the calls it could in that 2 seconds
+console.log('3');
+
+//CALL STACK
+
+
+//WEB API
+
+
+//CALLBACK QUEUE
+
+
+//EVENT LOOP
