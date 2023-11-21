@@ -31,4 +31,5 @@ function getRandomColor(){
 randBtn.addEventListener('click', function() {
     color1.value = getRandomColor();
     color2.value = getRandomColor();
+    setGradient();
 })
